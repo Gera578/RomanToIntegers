@@ -4,6 +4,22 @@
 
 using namespace std;
 
+string IntToRoman(int num) {
+    string roman[] = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
+    int values[] = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+
+    string result = ""; //variable to display the value in string
+
+    for (int i = 0; i < 13; i++) {
+        while (num >= values[i]) {
+            num -= values[i];
+            result += roman[i];
+        }
+    }
+
+    return result;
+}
+
 
 
 int main() {
@@ -67,6 +83,13 @@ int main() {
             sum += 1000;
         }
     }
-    cout << " Result: " << sum; //we display the total sum
+    cout << " Result: " << sum << endl; //we display the total sum
+
+    int number = 1994;
+
+    string romanNumber = IntToRoman(number);
+    cout << "Integer: "<<number<<" to roman number: " << romanNumber << endl;
+
+
 
 }
